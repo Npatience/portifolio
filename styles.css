@@ -284,7 +284,7 @@ body{
     text-underline-offset: 10px;
     text-underline-thickness: 5px;
     margin-bottom: 50px;
-}
+}/*
 .bar{
     font-size: 23px;
 }
@@ -309,14 +309,19 @@ margin-top: 40px 0;
 .tech-bar .bar .progress-line{
     position: relative;
     border-radius: 10px;
-    width: 100%;
+    width: 25%;
     height: 5px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     animation: animate 1s cubic-bezier(1,0,0,5,1) forwards;
-    transform: scaleX(0);
+    transform: scaleX(1);
     transform-origin: left;
 }
 @keyframes animate{
+    100%{
+        transform: scaleX(1);
+    }
+}
+@keyframes showText{
     100%{
         transform: scaleX(1);
     }
@@ -327,7 +332,7 @@ margin-top: 40px 0;
     position: absolute;
     border-radius: 10px;
     animation: animate 1s 1s cubic-bezier(1,0,0,5,1) forwards;
-    transform: scaleX(0);
+    transform: scaleX(1);
     transform-origin: left;
 }
 .progress-line .html span{
@@ -338,4 +343,91 @@ margin-top: 40px 0;
 }
 .progress-line .javascript span{
     width:70%;
+}*/
+/* Define common styling for all bars */
+/* Define common styling for all bars */
+.tech-bar .bar {
+    margin-top: 40px;
 }
+
+/* Apply different margin for first and last bars */
+.tech-bar .bar:first-child {
+    margin-top: 0;
+}
+
+.tech-bar .bar:last-child {
+    margin-bottom: 0;
+}
+
+/* Add margin for text info within bars */
+.tech-bar .bar .info {
+    margin-bottom: 5px;
+}
+
+/* Style text within bars */
+.tech-bar .bar .info span {
+    font-size: 17px;
+    font-weight: 500;
+    opacity: 0;
+    animation: showText 0.5s 1s linear forwards;
+}
+
+/* Define animation for showing text */
+@keyframes showText {
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Define common styling for progress lines */
+.tech-bar .bar .progress-line {
+    position: relative;
+    border-radius: 10px;
+    height: 5px;
+    background-color: rgb(0, 0, 0);
+    transform-origin: left;
+}
+
+/* Define animation for progress line */
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+/* Apply animation to progress line */
+.tech-bar .bar .progress-line span {
+    height: 100%;
+    position: absolute;
+    border-radius: 10px;
+    transform-origin: left;
+    animation: animate 1s cubic-bezier(1, 0, 0, 5, 1) forwards;
+}
+
+/* Style progress line within each technology */
+.tech-bar .bar .html span {
+    width: 90%;
+    background-color: aqua; /* Adjust color for HTML progress */
+}
+
+.tech-bar .bar .css span {
+    width: 50%;
+    background-color: aqua; /* Adjust color for CSS progress */
+}
+
+.tech-bar .bar .javascript span {
+    width: 70%;
+    background-color: aqua; /* Adjust color for JavaScript progress */
+}
+.tech-bar .bar  .python span {
+    width: 50%;
+    background-color: aqua; /* Adjust color for CSS progress */
+}
+
+.tech-bar .bar .react span {
+    width: 20%;
+    background-color: aqua; /* Adjust color for JavaScript progress */
+}
+
+
+
